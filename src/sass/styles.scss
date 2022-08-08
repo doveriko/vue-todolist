@@ -1,0 +1,12 @@
+@import '_variables.scss';
+
+#app {
+    font-family: $base-font-family;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 60px;
+}
+
+.icon {
+    cursor: pointer;
+}
