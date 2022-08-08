@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <base-card></base-card>
+    <ToDoGenerator />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/ToDoGenerator.vue";
+import ToDoGenerator from "./components/ToDoGenerator.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    ToDoGenerator,
   },
 };
 </script>
