@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-
+    <p>Soy una tarjeta</p>
   </div>
 </template>
 
