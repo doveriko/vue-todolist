@@ -12,9 +12,14 @@ Vue.component("checkbox-input", CheckboxInput);
 
 // Set-up Font Awesome icons
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCirclePlus,
+  faPen,
+  faTrash,
+  faFloppyDisk,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(faCirclePlus);
+library.add(faCirclePlus, faPen, faTrash, faFloppyDisk);
 Vue.component("fa-icon", FontAwesomeIcon);
 
 new Vue({

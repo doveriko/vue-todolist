@@ -7,7 +7,7 @@
 <style scoped lang="scss">
 .card {
   border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid #120531;
   padding: 0.5rem;
   margin: 1rem auto;
   padding: 1rem;
