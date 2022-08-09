@@ -2,8 +2,14 @@
   <base-card class="todo-item">
     <!-- Item checker -->
     <div class="item-checker">
-      <input type="checkbox" name="item" v-model="inputVal" />
+      <input
+        type="checkbox"
+        name="item"
+        v-model="item.completed"
+        @click="markAsCompleted"
+      />
       <label for="item"></label>
+      <span>{{ item.completed }}</span>
     </div>
 
     <!-- Item display -->
@@ -31,7 +37,6 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      inputVal: null,
       isEditMode: false,
     };
   },
@@ -42,12 +47,16 @@ export default {
     EditItem,
   },
   methods: {
-    ...mapActions(["removeItemFromList"]),
+    ...mapActions(["removeItemFromList", "markTaskAsCompleted"]),
     editItem(mode) {
       this.isEditMode = mode;
     },
     removeItem() {
       this.removeItemFromList(this.item);
+    },
+    markAsCompleted() {
+      this.item.completed = !this.item.completed;
+      this.markTaskAsCompleted(this.item);
     },
   },
 };

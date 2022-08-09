@@ -1,11 +1,10 @@
 <template>
   <div class="todo-generator">
-    <p class="">Add one element to your list</p>
     <input
       type="text"
       name="address"
       v-model.trim="itemInput"
-      placeholder="Enter a new task"
+      placeholder="Add one element to your list"
       @keyup.enter="addItem"
     />
     <fa-icon
@@ -30,15 +29,13 @@ export default {
   methods: {
     ...mapActions(["addItemToList"]),
     async addItem() {
-      let self = this;
-
       if (this.itemInput) {
         this.idGenerator(3);
 
         let item = {
           id: this.itemId,
           input: this.itemInput,
-          checked: false,
+          completed: false,
         };
 
         await this.addItemToList(item);
