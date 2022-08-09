@@ -1,23 +1,20 @@
 <template>
-  <div class="hello">
-    <p>Soy una tarjeta</p>
+  <div class="card">
+    <slot></slot>
   </div>
 </template>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.card {
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #fff;
+
+  &:first-of-type {
+    margin-top: 2rem;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="todo-item">
+  <base-card>
     <p>{{ item.input }}</p>
-  </div>
+  </base-card>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+p {
+  margin: 0;
 }
 </style>
