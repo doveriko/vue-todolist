@@ -1,18 +1,17 @@
 <template>
-  <base-card class="todo-item">
-    <!-- Item checker -->
+  <base-card class="todo-item" :class="{ completed: item.completed }">
+    <!-- Item completed checker -->
     <div class="item-checker">
       <input
         type="checkbox"
         name="item"
         v-model="item.completed"
-        @click="markAsCompleted"
+        @change="markAsCompleted"
       />
       <label for="item"></label>
-      <span>{{ item.completed }}</span>
     </div>
 
-    <!-- Item display -->
+    <!-- Item input display -->
     <EditItem
       v-if="isEditMode"
       class="item-display"
@@ -55,7 +54,6 @@ export default {
       this.removeItemFromList(this.item);
     },
     markAsCompleted() {
-      this.item.completed = !this.item.completed;
       this.markTaskAsCompleted(this.item);
     },
   },

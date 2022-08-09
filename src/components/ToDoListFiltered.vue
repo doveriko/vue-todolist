@@ -1,6 +1,7 @@
 <template>
   <div class="todo-list">
-    <div v-if="allItems.length" class="list-wrapper">
+    <span>TO DO LIST FILTERED</span>
+    <!-- <div v-if="allItems.length" class="list-wrapper">
       <to-do-item
         v-for="item in allItems"
         :key="item.id"
@@ -9,7 +10,7 @@
     </div>
     <div v-else class="no-items">
       <p class="no-items-message">Your list is empty</p>
-    </div>
+    </div> -->
   </div>
 </template>
 

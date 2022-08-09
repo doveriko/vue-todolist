@@ -6,6 +6,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     addedItems: [],
+    filters: {
+      completedItems: false
+    }
   },
   actions: {
     async addItemToList(context, data) {
@@ -20,6 +23,12 @@ export default new Vuex.Store({
     async markTaskAsCompleted(context, data) {
       context.commit("MARK_TASK_AS_COMPLETED", data);
     },
+    applyFilter(context, filterType) {
+      context.commit("APPLY_FILTER", filterType);
+    },
+    removeFilter(context, filterType) {
+      context.commit("REMOVE_FILTER", filterType);
+    }
   },
   mutations: {
     ADD_ITEM_TO_LIST(state, payload) {
@@ -43,10 +52,19 @@ export default new Vuex.Store({
         state.addedItems[itemIndex].completed = payload.completed;
       }
     },
+    APPLY_FILTER(state, type) {
+      state.filters[type] = true;
+    },
+    REMOVE_FILTER(state, type) {
+      state.filters[type] = false;
+    }
   },
   getters: {
     allItems(state) {
       return state.addedItems.reverse();
     },
+    anyFiltersApplied(state) {
+      return state.filters.completedItems;
+    }
   },
 });

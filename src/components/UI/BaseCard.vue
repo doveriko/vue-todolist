@@ -7,7 +7,7 @@
 <style scoped lang="scss">
 .card {
   border-radius: 8px;
-  border: 1px solid #120531;
+  border: 2px solid #120531;
   padding: 0.5rem;
   margin: 1rem auto;
   padding: 1rem;
@@ -19,6 +19,11 @@
 
   &:hover {
     background-color: #e3f0ff;
+  }
+
+  &.completed {
+    border-color: green;
+    background-color: rgb(221, 255, 236);
   }
 }
 </style>
