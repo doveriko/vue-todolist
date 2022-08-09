@@ -11,7 +11,7 @@
       v-if="isEditMode"
       class="item-display"
       :item="item"
-      @saveItem="editItem(false)"
+      @updateItem="editItem(false)"
     />
 
     <div v-else class="item-display">

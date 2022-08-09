@@ -34,6 +34,7 @@ export default {
         let item = {
           id: this.idGenerator(3),
           input: this.itemInput,
+          checked: false,
         };
         await this.addItemToList(item);
         this.itemInput = null;
