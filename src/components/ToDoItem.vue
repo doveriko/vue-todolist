@@ -51,8 +51,33 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-p {
-  margin: 0;
+<style lang="scss">
+.todo-item {
+  display: flex;
+
+  .item-checker {
+    flex-basis: 10%;
+
+    input {
+      cursor: pointer;
+    }
+  }
+
+  .item-display {
+    display: flex;
+    flex-basis: 90%;
+
+    .input-label {
+      flex-basis: 80%;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .input-actions {
+      flex-basis: 20%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
 }
 </style>

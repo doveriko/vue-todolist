@@ -16,5 +16,9 @@
   &:first-of-type {
     margin-top: 2rem;
   }
+
+  &:hover {
+    background-color: #e3f0ff;
+  }
 }
 </style>

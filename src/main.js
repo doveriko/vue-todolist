@@ -6,9 +6,7 @@ Vue.config.productionTip = false;
 
 // Register UI components globally
 import BaseCard from "./components/UI/BaseCard.vue";
-import CheckboxInput from "./components/UI/CheckboxInput.vue";
 Vue.component("base-card", BaseCard);
-Vue.component("checkbox-input", CheckboxInput);
 
 // Set-up Font Awesome icons
 import { library } from "@fortawesome/fontawesome-svg-core";
