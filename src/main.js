@@ -10,7 +10,7 @@ import CheckboxInput from "./components/UI/CheckboxInput.vue";
 Vue.component("base-card", BaseCard);
 Vue.component("checkbox-input", CheckboxInput);
 
-// Font Awesome icons
+// Set-up Font Awesome icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
