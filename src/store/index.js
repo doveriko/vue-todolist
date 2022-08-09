@@ -65,6 +65,11 @@ export default new Vuex.Store({
     },
     anyFiltersApplied(state) {
       return state.filters.completedItems;
+    },
+    filteredItems: (state) => (filter) => {
+      if (filter === "completedItems") {
+        return state.addedItems.filter(i => i.completed);
+      }
     }
   },
 });

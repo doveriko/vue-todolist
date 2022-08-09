@@ -1,16 +1,15 @@
 <template>
   <div class="todo-list">
-    <span>TO DO LIST FILTERED</span>
-    <!-- <div v-if="allItems.length" class="list-wrapper">
+    <div v-if="filteredList.length" class="list-wrapper">
       <to-do-item
-        v-for="item in allItems"
+        v-for="item in filteredList"
         :key="item.id"
         :item="item"
       ></to-do-item>
     </div>
     <div v-else class="no-items">
-      <p class="no-items-message">Your list is empty</p>
-    </div> -->
+      <p class="no-items-message">No items found for this filter.</p>
+    </div>
   </div>
 </template>
 
@@ -19,11 +18,19 @@ import { mapGetters } from "vuex";
 import ToDoItem from "./ToDoItem.vue";
 
 export default {
+  data() {
+    return {
+      filteredList: [],
+    };
+  },
   components: {
     ToDoItem,
   },
   computed: {
-    ...mapGetters(["allItems"]),
+    ...mapGetters(["filteredItems"]),
+  },
+  created() {
+    this.filteredList = this.filteredItems("completedItems");
   },
 };
 </script>
