@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import _ from "lodash";
 
 Vue.use(Vuex);
 
@@ -28,6 +29,9 @@ export default new Vuex.Store({
     },
     removeFilter(context, filterType) {
       context.commit("REMOVE_FILTER", filterType);
+    },
+    removeAllFilters(context) {
+      context.commit("REMOVE_ALL_FILTERS");
     }
   },
   mutations: {
@@ -57,6 +61,9 @@ export default new Vuex.Store({
     },
     REMOVE_FILTER(state, type) {
       state.filters[type] = false;
+    },
+    REMOVE_ALL_FILTERS(state, type) {
+      state.filters = _.mapValues(state.filters, () => false);
     }
   },
   getters: {

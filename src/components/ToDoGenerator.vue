@@ -27,7 +27,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["addItemToList"]),
+    ...mapActions(["addItemToList", "removeAllFilters"]),
     async addItem() {
       if (this.itemInput) {
         this.idGenerator(3);
@@ -39,6 +39,8 @@ export default {
         };
 
         await this.addItemToList(item);
+        this.removeAllFilters();
+
         this.itemInput = null;
       }
     },
