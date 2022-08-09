@@ -26,6 +26,7 @@
 
 <script>
 import EditItem from "./ToDoEditItem.vue";
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -41,11 +42,12 @@ export default {
     EditItem,
   },
   methods: {
+    ...mapActions(["removeItemFromList"]),
     editItem(mode) {
       this.isEditMode = mode;
     },
     removeItem() {
-      console.log("removeItem");
+      this.removeItemFromList(this.item);
     },
   },
 };

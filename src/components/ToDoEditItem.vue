@@ -17,8 +17,7 @@ export default {
   methods: {
     ...mapActions(["updateItemInList"]),
     async editItem() {
-      console.log("updatedInput", this.item.input);
-      // await this.updateItemInList(this.item.input);
+      await this.updateItemInList(this.item);
       this.$emit("updateItem");
     },
   },

@@ -30,12 +30,17 @@ export default {
   methods: {
     ...mapActions(["addItemToList"]),
     async addItem() {
+      let self = this;
+
       if (this.itemInput) {
+        this.idGenerator(3);
+
         let item = {
-          id: this.idGenerator(3),
+          id: this.itemId,
           input: this.itemInput,
           checked: false,
         };
+
         await this.addItemToList(item);
         this.itemInput = null;
       }
