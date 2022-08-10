@@ -5,10 +5,12 @@
       <input
         type="checkbox"
         name="item"
-        v-model="item.completed"
+        v-model="isItemCompleted"
         @change="markAsCompleted"
       />
       <label for="item"></label>
+      <span>{{ item.completed }}</span>
+      <span>{{ isItemCompleted }}</span>
     </div>
 
     <!-- Item input display -->
@@ -36,6 +38,7 @@ export default {
   data() {
     return {
       isEditMode: false,
+      isItemCompleted: this.item.completed,
     };
   },
   props: {
@@ -54,7 +57,9 @@ export default {
       this.removeItemFromList(this.item);
     },
     markAsCompleted() {
-      this.markTaskAsCompleted(this.item);
+      let itemCopy = this.item;
+      itemCopy.completed = this.isItemCompleted;
+      this.markTaskAsCompleted(itemCopy);
     },
   },
 };

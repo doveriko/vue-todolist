@@ -8,8 +8,8 @@ export default new Vuex.Store({
   state: {
     addedItems: [],
     filters: {
-      completedItems: false
-    }
+      completedItems: false,
+    },
   },
   actions: {
     addItemToList(context, data) {
@@ -32,26 +32,26 @@ export default new Vuex.Store({
     },
     removeAllFilters(context) {
       context.commit("REMOVE_ALL_FILTERS");
-    }
+    },
   },
   mutations: {
     ADD_ITEM_TO_LIST(state, payload) {
       state.addedItems.push(payload);
     },
     UPDATE_ITEM_IN_LIST(state, payload) {
-      let itemIndex = state.addedItems.findIndex(e => e.id === payload.id);
+      let itemIndex = state.addedItems.findIndex((e) => e.id === payload.id);
       if (itemIndex > -1) {
         state.addedItems[itemIndex].input = payload.input;
       }
     },
     REMOVE_ITEM_FROM_LIST(state, payload) {
-      let itemIndex = state.addedItems.findIndex(e => e.id === payload.id);
+      let itemIndex = state.addedItems.findIndex((e) => e.id === payload.id);
       if (itemIndex > -1) {
         state.addedItems.splice(itemIndex, 1);
       }
     },
     MARK_TASK_AS_COMPLETED(state, payload) {
-      let itemIndex = state.addedItems.findIndex(e => e.id === payload.id);
+      let itemIndex = state.addedItems.findIndex((e) => e.id === payload.id);
       if (itemIndex > -1) {
         state.addedItems[itemIndex].completed = payload.completed;
       }
@@ -62,9 +62,9 @@ export default new Vuex.Store({
     REMOVE_FILTER(state, type) {
       state.filters[type] = false;
     },
-    REMOVE_ALL_FILTERS(state, type) {
+    REMOVE_ALL_FILTERS(state) {
       state.filters = _.mapValues(state.filters, () => false);
-    }
+    },
   },
   getters: {
     allItems(state) {
@@ -75,8 +75,8 @@ export default new Vuex.Store({
     },
     filteredItems: (state) => (filter) => {
       if (filter === "completedItems") {
-        return state.addedItems.filter(i => i.completed);
+        return state.addedItems.filter((i) => i.completed);
       }
-    }
+    },
   },
 });
