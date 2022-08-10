@@ -10,8 +10,8 @@
   border: 2px solid #120531;
   padding: 0.5rem;
   margin: 1rem auto;
-  padding: 1rem;
   background-color: #fff;
+  max-width: 500px;
 
   &:first-of-type {
     margin-top: 2rem;

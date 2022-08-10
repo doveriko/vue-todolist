@@ -61,8 +61,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon[disabled] {
-  pointer-events: none;
-  color: #999;
+.todo-generator {
+  input {
+    height: 25px;
+    width: 200px;
+    font-size: 0.8rem;
+    margin: 0 0.5rem;
+    text-align: center;
+  }
 }
 </style>

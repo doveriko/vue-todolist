@@ -33,9 +33,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-.no-items-message {
-  font-size: 0.75rem;
-}
-</style>

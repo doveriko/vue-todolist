@@ -9,8 +9,6 @@
         @change="markAsCompleted"
       />
       <label for="item"></label>
-      <span>{{ item.completed }}</span>
-      <span>{{ isItemCompleted }}</span>
     </div>
 
     <!-- Item input display -->
@@ -91,6 +89,7 @@ export default {
       flex-basis: 20%;
       display: flex;
       justify-content: space-around;
+      align-items: center;
     }
   }
 }
