@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import EditItem from "./ToDoEditItem.vue";
 import { mapActions } from "vuex";
 
 export default {
@@ -43,7 +42,8 @@ export default {
     item: Object,
   },
   components: {
-    EditItem,
+    EditItem: () =>
+      import(/* webpackChunkName: "EditItem" */ "./ToDoEditItem.vue"),
   },
   methods: {
     ...mapActions(["removeItemFromList", "markTaskAsCompleted"]),

@@ -9,19 +9,15 @@
 </template>
 
 <script>
-import ToDoGenerator from "./components/ToDoGenerator.vue";
-import Filters from "./components/Filters/CompletedItemsFilter.vue";
-import ToDoList from "./components/ToDoList.vue";
-import ToDoListFiltered from "./components/ToDoListFiltered.vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "App",
   components: {
-    ToDoGenerator,
-    Filters,
-    ToDoList,
-    ToDoListFiltered,
+    ToDoGenerator: () => import( /* webpackChunkName: "ToDoGenerator" */ "./components/ToDoGenerator.vue"),
+    Filters: () => import( /* webpackChunkName: "Filters" */ "./components/Filters/CompletedItemsFilter.vue"),
+    ToDoList: () => import(/* webpackChunkName: "ToDoList" */ "./components/ToDoList.vue"),
+    ToDoListFiltered: () => import(/* webpackChunkName: "ToDoListFiltered" */ "./components/ToDoListFiltered.vue"),
   },
   computed: {
     ...mapGetters(["allItems", "anyFiltersApplied"]),

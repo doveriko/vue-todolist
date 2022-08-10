@@ -15,11 +15,10 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ToDoItem from "./ToDoItem.vue";
 
 export default {
   components: {
-    ToDoItem,
+    ToDoItem: () => import(/* webpackChunkName: "ToDoItem" */ "./ToDoItem.vue"),
   },
   computed: {
     ...mapGetters(["allItems"]),
