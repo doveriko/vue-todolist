@@ -12,16 +12,16 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async addItemToList(context, data) {
+    addItemToList(context, data) {
       context.commit("ADD_ITEM_TO_LIST", data);
     },
-    async updateItemInList(context, data) {
+    updateItemInList(context, data) {
       context.commit("UPDATE_ITEM_IN_LIST", data);
     },
-    async removeItemFromList(context, data) {
+    removeItemFromList(context, data) {
       context.commit("REMOVE_ITEM_FROM_LIST", data);
     },
-    async markTaskAsCompleted(context, data) {
+    markTaskAsCompleted(context, data) {
       context.commit("MARK_TASK_AS_COMPLETED", data);
     },
     applyFilter(context, filterType) {

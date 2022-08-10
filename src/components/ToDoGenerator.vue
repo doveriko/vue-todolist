@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     ...mapActions(["addItemToList", "removeAllFilters"]),
-    async addItem() {
+    addItem() {
       if (this.itemInput) {
         this.itemId = utils.idGenerator(6);
 
@@ -39,7 +39,7 @@ export default {
           completed: false,
         };
 
-        await this.addItemToList(item);
+        this.addItemToList(item);
         this.removeAllFilters();
 
         this.itemInput = null;

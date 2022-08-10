@@ -16,16 +16,10 @@ export default {
   },
   methods: {
     ...mapActions(["updateItemInList"]),
-    async editItem() {
-      await this.updateItemInList(this.item);
+    editItem() {
+      this.updateItemInList(this.item);
       this.$emit("updateItem");
     },
   },
 };
 </script>
-
-<style scoped lang="scss">
-p {
-  margin: 0;
-}
-</style>
