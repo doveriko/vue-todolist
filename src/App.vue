@@ -2,7 +2,7 @@
   <div id="app">
     <h1 class="app-header">TO DO LIST</h1>
     <ToDoGenerator />
-    <Filters v-if="allItems.length" />
+    <Filters v-if="allItems.length" :anyFiltersApplied="anyFiltersApplied" />
     <ToDoListFiltered v-if="anyFiltersApplied" />
     <ToDoList v-else />
   </div>

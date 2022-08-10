@@ -20,6 +20,16 @@ export default {
       isFilterActive: false,
     };
   },
+  props: {
+    anyFiltersApplied: Boolean,
+  },
+  watch: {
+    anyFiltersApplied(filtersApplied) {
+      if (!filtersApplied) {
+        this.isFilterActive = false;
+      }
+    },
+  },
   methods: {
     ...mapActions(["applyFilter", "removeFilter"]),
     toggleFilter() {
