@@ -22,8 +22,8 @@
   }
 
   &.completed {
-    border-color: green;
-    background-color: rgb(221, 255, 236);
+    border-color: #008000;
+    background-color: #ddffec;
   }
 }
 </style>

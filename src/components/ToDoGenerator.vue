@@ -18,6 +18,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import utils from "./../../src/lib/utils";
 
 export default {
   data() {
@@ -30,7 +31,7 @@ export default {
     ...mapActions(["addItemToList", "removeAllFilters"]),
     async addItem() {
       if (this.itemInput) {
-        this.idGenerator(3);
+        this.itemId = utils.idGenerator(6);
 
         let item = {
           id: this.itemId,
