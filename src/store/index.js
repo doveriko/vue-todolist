@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import _ from "lodash";
+import mapValues from "lodash/mapValues";
 
 Vue.use(Vuex);
 
@@ -36,22 +36,28 @@ export default new Vuex.Store({
   },
   mutations: {
     ADD_ITEM_TO_LIST(state, payload) {
-      state.addedItems.push(payload);
+      state.addedItems = [...state.addedItems, payload];
     },
     UPDATE_ITEM_IN_LIST(state, payload) {
-      let itemIndex = state.addedItems.findIndex((e) => e.id === payload.id);
+      let itemIndex = state.addedItems.findIndex(
+        (item) => item.id === payload.id
+      );
       if (itemIndex > -1) {
         state.addedItems[itemIndex].input = payload.input;
       }
     },
     REMOVE_ITEM_FROM_LIST(state, payload) {
-      let itemIndex = state.addedItems.findIndex((e) => e.id === payload.id);
+      let itemIndex = state.addedItems.findIndex(
+        (item) => item.id === payload.id
+      );
       if (itemIndex > -1) {
         state.addedItems.splice(itemIndex, 1);
       }
     },
     MARK_TASK_AS_COMPLETED(state, payload) {
-      let itemIndex = state.addedItems.findIndex((e) => e.id === payload.id);
+      let itemIndex = state.addedItems.findIndex(
+        (item) => item.id === payload.id
+      );
       if (itemIndex > -1) {
         state.addedItems[itemIndex].completed = payload.completed;
       }
@@ -63,7 +69,7 @@ export default new Vuex.Store({
       state.filters[type] = false;
     },
     REMOVE_ALL_FILTERS(state) {
-      state.filters = _.mapValues(state.filters, () => false);
+      state.filters = mapValues(state.filters, () => false);
     },
   },
   getters: {
@@ -75,7 +81,7 @@ export default new Vuex.Store({
     },
     filteredItems: (state) => (filter) => {
       if (filter === "completedItems") {
-        return state.addedItems.filter((i) => i.completed);
+        return state.addedItems.filter((item) => item.completed);
       }
     },
   },

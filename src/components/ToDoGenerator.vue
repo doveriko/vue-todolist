@@ -18,23 +18,20 @@
 
 <script>
 import { mapActions } from "vuex";
-import utils from "./../../src/lib/utils";
 
 export default {
   data() {
     return {
       itemInput: null,
-      itemId: null,
     };
   },
   methods: {
     ...mapActions(["addItemToList", "removeAllFilters"]),
     addItem() {
       if (this.itemInput) {
-        this.itemId = utils.idGenerator(6);
-
+        let itemId = Date.now();
         let item = {
-          id: this.itemId,
+          id: itemId,
           input: this.itemInput,
           completed: false,
         };
@@ -44,17 +41,6 @@ export default {
 
         this.itemInput = null;
       }
-    },
-    idGenerator(length) {
-      let result = "";
-      let characters = "0123456789";
-      let charactersLength = characters.length;
-      for (var i = 0; i < length; i++) {
-        result += characters.charAt(
-          Math.floor(Math.random() * charactersLength)
-        );
-      }
-      this.itemId = result;
     },
   },
 };

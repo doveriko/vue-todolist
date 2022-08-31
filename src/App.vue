@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <h1 class="app-header">TO DO LIST</h1>
-    <ToDoGenerator />
-    <Filters v-if="allItems.length" :anyFiltersApplied="anyFiltersApplied" />
-    <ToDoListFiltered v-if="anyFiltersApplied" />
-    <ToDoList v-else />
+    <to-do-generator />
+    <filters v-if="allItems.length" :anyFiltersApplied="anyFiltersApplied" />
+    <to-do-list-filtered v-if="anyFiltersApplied" />
+    <to-do-list v-else />
   </div>
 </template>
 
