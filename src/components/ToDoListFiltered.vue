@@ -1,8 +1,8 @@
 <template>
   <div class="todo-list">
-    <div v-if="filteredList.length" class="list-wrapper">
+    <div v-if="filteredItems.length" class="list-wrapper">
       <to-do-item
-        v-for="item in filteredList"
+        v-for="item in filteredItems"
         :key="item.id"
         :item="item"
       ></to-do-item>
@@ -27,9 +27,6 @@ export default {
   },
   computed: {
     ...mapGetters(["filteredItems"]),
-  },
-  created() {
-    this.filteredList = this.filteredItems("completedItems");
   },
 };
 </script>
