@@ -91,7 +91,7 @@ export default new Vuex.Store({
         filteredItems.filter((item) => item.completed);
       }
       if (state.filters.inputSearch) {
-        filteredItems.filter((item) => item.input.includes("a"));
+        filteredItems.filter((item) => item.input.includes(state.search));
       }
 
       return filteredItems;
