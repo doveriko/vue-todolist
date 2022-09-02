@@ -16,13 +16,13 @@
       v-if="isEditMode"
       class="item-display"
       :item="item"
-      @updateItem="editItem(false)"
+      @updateItem="isEditMode = false"
     />
 
     <div v-else class="item-display">
       <span class="input-label">{{ item.input }}</span>
       <div class="input-actions">
-        <fa-icon icon="pen" class="icon edit" @click="editItem(true)" />
+        <fa-icon icon="pen" class="icon edit" @click="isEditMode = true" />
         <fa-icon icon="trash" class="icon remove" @click="removeItem" />
       </div>
     </div>
@@ -48,15 +48,12 @@ export default {
   },
   methods: {
     ...mapActions(["removeItemFromList", "markTaskAsCompleted"]),
-    editItem(mode) {
-      this.isEditMode = mode;
-    },
     removeItem() {
       this.removeItemFromList(this.item);
     },
-    markAsCompleted() {
+    markAsCompleted(event) {
       let itemCopy = this.item;
-      itemCopy.completed = this.isItemCompleted;
+      itemCopy.completed = event.target.checked;
       this.markTaskAsCompleted(itemCopy);
     },
   },
