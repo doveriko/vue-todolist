@@ -53,7 +53,7 @@ export default {
     },
     markAsCompleted(event) {
       let itemCopy = this.item;
-      itemCopy.completed = event.target.checked;
+      itemCopy.completed = event.target.checked; // === this.isItemCompleted
       this.markTaskAsCompleted(itemCopy);
     },
   },

@@ -14,7 +14,7 @@
   max-width: 500px;
 
   &:first-of-type {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   &:hover {

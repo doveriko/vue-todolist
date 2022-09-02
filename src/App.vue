@@ -20,7 +20,7 @@ export default {
       ),
     Filters: () =>
       import(
-        /* webpackChunkName: "Filters" */ "./components/Filters/CompletedItemsFilter.vue"
+        /* webpackChunkName: "Filters" */ "./components/Filters/Filters.vue"
       ),
     ToDoList: () =>
       import(/* webpackChunkName: "ToDoList" */ "./components/ToDoList.vue"),

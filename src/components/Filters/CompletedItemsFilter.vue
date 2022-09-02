@@ -33,6 +33,7 @@ export default {
   methods: {
     ...mapActions(["applyFilter", "removeFilter"]),
     toggleFilter() {
+      debugger;
       if (this.isFilterActive) {
         this.applyFilter("completedItems");
       } else {
@@ -43,9 +44,20 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.completed-item-filter {
-  margin: 1rem 0;
-  font-size: 0.75rem;
+<style lang="scss" scoped>
+$break-small: 767px;
+
+input {
+  margin: 10px;
+  @media (max-width: $break-small) {
+    margin: 5px;
+  }
+}
+
+span {
+  line-height: 30px;
+  @media (max-width: $break-small) {
+    line-height: 15px;
+  }
 }
 </style>
