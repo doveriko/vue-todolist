@@ -2,7 +2,7 @@
   <div class="filters">
     <h4>FILTERS:</h4>
     <completed-items-filter />
-    <input-filter />
+    <search-filter />
   </div>
 </template>
 
@@ -13,8 +13,8 @@ export default {
       import(
         /* webpackChunkName: "CompletedItemsFilter" */ "./CompletedItemsFilter.vue"
       ),
-    InputFilter: () =>
-      import(/* webpackChunkName: "InputFilter" */ "./InputFilter.vue"),
+    SearchFilter: () =>
+      import(/* webpackChunkName: "SearchFilter" */ "./SearchFilter.vue"),
   },
 };
 </script>

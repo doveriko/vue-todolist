@@ -1,6 +1,11 @@
 <template>
   <div class="edit-item">
-    <input type="text" v-model="itemInput" class="input-label" />
+    <input
+      type="text"
+      v-model="itemInput"
+      class="input-label"
+      @keyup.enter="editItem"
+    />
     <div class="input-actions">
       <fa-icon icon="floppy-disk" class="icon save" @click="editItem" />
     </div>

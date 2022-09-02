@@ -6,7 +6,7 @@
       v-model="isFilterActive"
       @change="toggleFilter"
     />
-    <label for="completedItemFilter"></label>
+    <label for="completedItemFilter" />
     <span>Show only completed tasks</span>
   </div>
 </template>
@@ -33,7 +33,6 @@ export default {
   methods: {
     ...mapActions(["applyFilter", "removeFilter"]),
     toggleFilter() {
-      debugger;
       if (this.isFilterActive) {
         this.applyFilter("completedItems");
       } else {

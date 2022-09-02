@@ -1,18 +1,23 @@
 <template>
   <div class="input-filter">
-    <input type="input" name="inputFilter" />
+    <input
+      type="input"
+      name="inputFilter"
+      v-model="search"
+      @input="searchThis"
+    />
     <label for="inputFilter"></label>
     <span>Search your task</span>
   </div>
 </template>
 
 <script>
-// import { mapActions } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      // isFilterActive: false,
+      search: null,
     };
   },
   props: {
@@ -26,14 +31,18 @@ export default {
     // },
   },
   methods: {
-    // ...mapActions(["applyFilter", "removeFilter"]),
-    // toggleFilter() {
-    //   if (this.isFilterActive) {
-    //     this.applyFilter("completedItems");
-    //   } else {
-    //     this.removeFilter("completedItems");
-    //   }
-    // },
+    ...mapMutations(["updateSearch"]),
+    ...mapActions(["applyFilter", "removeFilter"]),
+    searchThis() {
+      
+      this.updateSearch(this.search);
+
+      if (this.search) {
+        this.applyFilter("inputSearch");
+      } else {
+        this.removeFilter("inputSearch");
+      }
+    },
   },
 };
 </script>

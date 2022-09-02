@@ -9,7 +9,9 @@ export default new Vuex.Store({
     addedItems: [],
     filters: {
       completedItems: false,
+      inputSearch: false,
     },
+    search: null,
   },
   actions: {
     addItemToList(context, data) {
@@ -71,18 +73,28 @@ export default new Vuex.Store({
     REMOVE_ALL_FILTERS(state) {
       state.filters = mapValues(state.filters, () => false);
     },
+    updateSearch(state, payload) {
+      state.search = payload;
+    },
   },
   getters: {
     allItems(state) {
       return state.addedItems.reverse();
     },
     anyFiltersApplied(state) {
-      return state.filters.completedItems;
+      return state.filters.completedItems || state.filters.inputSearch;
     },
-    filteredItems: (state) => (filter) => {
-      if (filter === "completedItems") {
-        return state.addedItems.filter((item) => item.completed);
+    filteredItems(state) {
+      const filteredItems = state.addedItems;
+
+      if (state.filters.completedItems) {
+        filteredItems.filter((item) => item.completed);
       }
+      if (state.filters.inputSearch) {
+        filteredItems.filter((item) => item.input.includes("a"));
+      }
+
+      return filteredItems;
     },
   },
 });
