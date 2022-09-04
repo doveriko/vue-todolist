@@ -48,6 +48,7 @@ $break-small: 767px;
 
 input {
   margin: 10px;
+  cursor: pointer;
   @media (max-width: $break-small) {
     margin: 5px;
   }

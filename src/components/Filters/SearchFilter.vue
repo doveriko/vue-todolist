@@ -7,7 +7,8 @@
       @input="searchThis"
     />
     <label for="inputFilter"></label>
-    <span>Search your task</span>
+    <span v-if="!search">Search your task</span>
+    <span v-else @click="clearFilter" class="clear-filter">Clear filter</span>
   </div>
 </template>
 
@@ -34,7 +35,6 @@ export default {
     ...mapMutations(["updateSearch"]),
     ...mapActions(["applyFilter", "removeFilter"]),
     searchThis() {
-      
       this.updateSearch(this.search);
 
       if (this.search) {
@@ -42,6 +42,10 @@ export default {
       } else {
         this.removeFilter("inputSearch");
       }
+    },
+    clearFilter() {
+      this.search = null;
+      this.removeFilter("inputSearch");
     },
   },
 };
@@ -57,9 +61,11 @@ $break-small: 767px;
 
 span {
   line-height: 30px;
+  width: 40%;
 
   @media (max-width: $break-small) {
     line-height: initial;
+    width: initial;
     margin-top: 10px;
     margin-bottom: -5px;
   }
@@ -73,6 +79,14 @@ input {
   @media (max-width: $break-small) {
     width: 90%;
     margin: 10px auto;
+  }
+}
+
+.clear-filter {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 </style>

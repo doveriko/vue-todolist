@@ -84,22 +84,19 @@ export default new Vuex.Store({
     anyFiltersApplied(state) {
       return state.filters.completedItems || state.filters.inputSearch;
     },
-    // filteredItems(state)  {
-    //   if (state.filters.completedItems) {
-    //     return state.addedItems.filter((i) => i.completed);
-    //   }
-    // },
     filteredItems(state) {
       let filteredItems = state.addedItems;
 
       if (state.filters.completedItems) {
-        return filteredItems.filter((item) => item.completed);
+        filteredItems = filteredItems.filter((item) => item.completed);
       }
       if (state.filters.inputSearch) {
-        return filteredItems.filter((item) =>
+        filteredItems = filteredItems.filter((item) =>
           item.input.includes(state.search)
         );
       }
+
+      return filteredItems;
     },
   },
 });
