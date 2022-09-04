@@ -1,13 +1,16 @@
 <template>
   <div class="filters">
     <h4>FILTERS:</h4>
-    <completed-items-filter />
-    <search-filter />
+    <completed-items-filter :anyFiltersApplied="anyFiltersApplied" />
+    <search-filter :anyFiltersApplied="anyFiltersApplied" />
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    anyFiltersApplied: Boolean,
+  },
   components: {
     CompletedItemsFilter: () =>
       import(

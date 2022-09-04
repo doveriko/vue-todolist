@@ -25,11 +25,11 @@ export default {
     anyFiltersApplied: Boolean,
   },
   watch: {
-    // anyFiltersApplied(filtersApplied) {
-    //   if (!filtersApplied) {
-    //     this.isFilterActive = false;
-    //   }
-    // },
+    anyFiltersApplied(filtersApplied) {
+      if (!filtersApplied) {
+        this.search = null;
+      }
+    },
   },
   methods: {
     ...mapMutations(["updateSearch"]),
