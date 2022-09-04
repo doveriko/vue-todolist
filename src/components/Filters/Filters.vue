@@ -14,7 +14,7 @@ export default {
         /* webpackChunkName: "CompletedItemsFilter" */ "./CompletedItemsFilter.vue"
       ),
     SearchFilter: () =>
-      import(/* webpackChunkName: "SearchFilter" */ "./SearchFilter.vue"),
+      import(/* webpackChunkName: "SearchFilters" */ "./SearchFilter.vue"),
   },
 };
 </script>
