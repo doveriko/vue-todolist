@@ -35,6 +35,9 @@ export default new Vuex.Store({
     removeAllFilters(context) {
       context.commit("REMOVE_ALL_FILTERS");
     },
+    updateSearch(context, search) {
+      context.commit("UPDATE_SEARCH", search);
+    },
   },
   mutations: {
     ADD_ITEM_TO_LIST(state, payload) {
@@ -73,8 +76,8 @@ export default new Vuex.Store({
     REMOVE_ALL_FILTERS(state) {
       state.filters = mapValues(state.filters, () => false);
     },
-    updateSearch(state, payload) {
-      state.search = payload;
+    UPDATE_SEARCH(state, searchInput) {
+      state.search = searchInput;
     },
   },
   getters: {

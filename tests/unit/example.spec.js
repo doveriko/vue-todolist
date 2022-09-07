@@ -1,12 +1,14 @@
-import { shallowMount } from "@vue/test-utils";
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mount } from "@vue/test-utils";
+import SearchFilter from "@/components/Filters/SearchFilter.vue";
 
-describe("HelloWorld.vue", () => {
-  it("renders props.msg when passed", () => {
-    const msg = "new message";
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg },
-    });
-    expect(wrapper.text()).toMatch(msg);
+describe("Mounted SearchFilter", () => {
+  const wrapper = mount(SearchFilter);
+
+  test("does a wrapper exist", () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+
+  it("renders the correct markup", () => {
+    expect(wrapper.html()).toContain("Search your task");
   });
 });

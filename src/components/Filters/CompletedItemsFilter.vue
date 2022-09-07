@@ -7,7 +7,9 @@
       @change="toggleFilter"
     />
     <label for="completedItemFilter" />
-    <span>Show only completed tasks</span>
+    <span @click="toggleFilterFromLabel" class="filter-message"
+      >Show only completed tasks</span
+    >
   </div>
 </template>
 
@@ -39,6 +41,10 @@ export default {
         this.removeFilter("completedItems");
       }
     },
+    toggleFilterFromLabel() {
+      this.isFilterActive = !this.isFilterActive;
+      this.toggleFilter();
+    },
   },
 };
 </script>
@@ -54,8 +60,10 @@ input {
   }
 }
 
-span {
+.filter-message {
   line-height: 30px;
+  cursor: pointer;
+
   @media (max-width: $break-small) {
     line-height: 15px;
   }

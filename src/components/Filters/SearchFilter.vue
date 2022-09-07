@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapMutations, mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -32,8 +32,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(["updateSearch"]),
-    ...mapActions(["applyFilter", "removeFilter"]),
+    ...mapActions(["applyFilter", "removeFilter", "updateSearch"]),
     searchThis() {
       this.updateSearch(this.search);
 
