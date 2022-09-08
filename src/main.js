@@ -6,7 +6,7 @@ Vue.config.productionTip = false;
 
 // Register UI components globally
 import BaseCard from "./components/UI/BaseCard.vue";
-Vue.component("base-card", BaseCard);
+Vue.component("baseCard", BaseCard);
 
 // Set-up Font Awesome icons
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -18,7 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(faCirclePlus, faPen, faTrash, faFloppyDisk);
-Vue.component("fa-icon", FontAwesomeIcon);
+Vue.component("faIcon", FontAwesomeIcon);
 
 new Vue({
   store,
